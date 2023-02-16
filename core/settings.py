@@ -135,6 +135,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "/static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
 # Default primary key field type
@@ -146,7 +147,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Define static storage via django-storages[google]
 if env("GS_BUCKET_NAME"):
     GS_BUCKET_NAME = env("GS_BUCKET_NAME")
-    STATICFILES_DIRS = []
     DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
     STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
     GS_DEFAULT_ACL = "publicRead"
