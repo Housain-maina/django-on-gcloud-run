@@ -133,8 +133,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "/static/"
-STATIC_ROOT = "/static/"
+if bool(DEBUG):
+    STATIC_ROOT = "/static/"
+    STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
@@ -149,4 +150,5 @@ if env("GS_BUCKET_NAME"):
     GS_BUCKET_NAME = env("GS_BUCKET_NAME")
     DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
     STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+    STATIC_URL = "https://storage.googleapis.com/{}/".format(env.str("GS_BUCKET_NAME"))
     GS_DEFAULT_ACL = "publicRead"
