@@ -2,7 +2,10 @@
 
 Step by step guide for deploying a django web app on Google Cloud Run.
 
-This guide includes setting up Terraform for automated resources provisioning on the Google Cloud Platform, Docker for containerizing your django app and Google Cloud Build for continuous integration / continuous deployment (CI/CD).
+This guide includes the following:
+1. Setting up Terraform for automated resources provisioning on the Google Cloud Platform
+2. Docker for containerizing your django app
+3. Google Cloud Build for continuous integration / continuous deployment (CI/CD).
 
 ## Pre-requisites
 
